@@ -1,0 +1,282 @@
+/* TODO - add reset.css to project */
+
+/* global selector */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-block-start: 0;
+  padding-block-end: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+}
+
+:root {
+  /* theme colours */
+  --color-blue: #00a7e1;
+  --color-red: #f06449;
+  --color-yellow: #ffbc42;
+  --color-dark: #0d1f2d;
+  --color-light: #f5f5f5;
+
+  /* font sizes */
+
+  /* font weights */
+
+  /* line heights */
+
+  /* letter spacings */
+
+  /* border radius */
+  --border-radius: 20px;
+
+  /* box shadows */
+
+  /* transition speeds */
+
+  /* z-index */
+
+  /* media queries */
+
+  /* heights */
+  --nav-height: 4.5rem;
+
+  /* padding */
+  --grid-padding: 1rem;
+
+  /* other */
+}
+
+body {
+  font-family: "Roboto Slab", Roboto, system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  background-color: var(--color-yellow);
+  color: var(--color-dark);
+}
+
+.content {
+  min-height: 120vh;
+  background-color: var(--color-yellow);
+  display: grid;
+  place-items: center;
+}
+
+/* navigation styles */
+header {
+  background-color: var(--color-dark);
+  text-align: center;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+  padding-top: 0.5em;
+  margin-left: 3.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.logo {
+  color: var(--color-red);
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.logo-tagline {
+  color: var(--color-light);
+  font-weight: 300;
+  font-size: 1rem;
+  padding-left: 1em;
+}
+
+/* responsive navigation toggle - hide it by moving out of the screen but allow it to be tabbable */
+.nav-toggle {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.nav-toggle:focus ~ .nav-toggle-label {
+  outline: 3px solid rgba(200 200 200 / 75%); /* TODO - change to theme color */
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* create a hamburger menu icon */
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background-color: white; /* TODO - change to theme color */
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: "";
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
+}
+
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: var(--background);
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 200ms ease-in-out;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  margin-bottom: 1em;
+  margin-left: 0.5em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  /* text-transform: uppercase; */
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+  color: var(--color-yellow);
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1, 1);
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 50ms;
+}
+
+/* Respond to larger screens */
+@media screen and (min-width: 600px) {
+  /* hide the navigation toggle */
+  .nav-toggle-label {
+    display: none;
+  }
+
+  /* format the navigation for large screens */
+  header {
+    display: grid;
+
+    /* logo on the left, navigation on the right */
+    grid-template-columns: 1fr auto;
+    column-gap: 0.5em;
+  }
+
+  .logo-container {
+    margin: 0;
+    padding-top: 0.75rem;
+    padding-bottom: 0;
+  }
+
+  .logo {
+    color: var(--color-red);
+    grid-column: 1;
+    text-align: left;
+    padding-left: 0.5em;
+    /* align-self: center; */
+    font-weight: 400;
+    font-size: 1.25rem;
+  }
+
+  .logo-tagline {
+    display: none;
+  }
+
+  /* change properties to their inherited values or to their initial values */
+  nav {
+    all: unset;
+  }
+
+  /* display the navigation horizontally */
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  nav li {
+    margin: 1em;
+  }
+
+  nav a {
+    opacity: 1;
+    position: relative;
+    font-size: 1rem;
+  }
+
+  nav a::before {
+    content: "";
+    display: block;
+    height: 5px;
+    background: var(--color-yellow);
+    position: absolute;
+    top: 1.5em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+
+  nav a:hover::before {
+    transform: scale(1, 1);
+  }
+}
+@media screen and (min-width: 800px) {
+  .logo-container {
+    padding-top: 0.5rem;
+    padding-bottom: 0;
+  }
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .logo-tagline {
+    display: inline-block;
+  }
+}
