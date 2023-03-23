@@ -1,3 +1,4 @@
+
 /* TODO - add reset.css to project */
 
 /* global selector */
@@ -45,7 +46,8 @@
   /* media queries */
 
   /* heights */
-  --nav-height: 4.5rem;
+  --nav-height-large: 3rem;
+  --nav-height-small: 3rem;
 
   /* padding */
   --grid-padding: 1rem;
@@ -74,6 +76,7 @@ header {
   text-align: center;
   position: fixed;
   z-index: 999;
+  height: var(--nav-height-small);
   width: 100%;
 }
 
@@ -81,16 +84,19 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  margin-top: 0.75rem;
   align-items: baseline;
-  padding-top: 0.5em;
+  /* padding-top: 0.5em; */
   margin-left: 3.5rem;
-  padding-bottom: 0.5rem;
+  /* padding-bottom: 0.5rem; */
+  height: var(--nav-height-small);
+  overflow: hidden;
 }
 
 .logo {
   color: var(--color-red);
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .logo-tagline {
@@ -174,6 +180,7 @@ nav a {
   color: white;
   text-decoration: none;
   font-size: 1rem;
+
   /* text-transform: uppercase; */
   opacity: 0;
   transition: opacity 150ms ease-in-out;
@@ -192,6 +199,51 @@ nav a:hover {
   transition: opacity 250ms ease-in-out 50ms;
 }
 
+/* set up the main enclosing grid with the aside on top and the main portfolio section below */
+.main-grid {
+ padding-top: var(--nav-height-small);
+  display: flex;
+  flex-direction: column;
+
+  /* flex-grow: 1; */
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* format the aside as a flexbox arranged in a column */
+.main-aside {
+  width: 100%;
+  /* TODO - change to theme color */
+  background-color: limegreen; 
+  border-color: #f06449;
+  border-style: solid;
+  border-width: 3px;
+  flex: 1 1 auto;
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
+/* format the main portfolio section as a Grid with two columns */
+.main-portfolio {
+  /* padding: 1rem; */
+  background-color: limegreen; /* TODO - change to theme color */
+  border-color: white;
+  border-width: 1px;
+  border-style: dashed;
+  width: 100%;
+  
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 1rem;
+}
+
 /* Respond to larger screens */
 @media screen and (min-width: 600px) {
   /* hide the navigation toggle */
@@ -202,6 +254,7 @@ nav a:hover {
   /* format the navigation for large screens */
   header {
     display: grid;
+    height: var(--nav-height-large);
 
     /* logo on the left, navigation on the right */
     grid-template-columns: 1fr auto;
@@ -266,12 +319,71 @@ nav a:hover {
   nav a:hover::before {
     transform: scale(1, 1);
   }
+
+  /* set up the main enclosing grid with the aside on top and the main portfolio section below */
+.main-grid {
+  padding-top: var(--nav-height-large);
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   
+   /* justify-content: flex-start;
+   align-content: flex-start;
+   align-items: stretch; */
+ }
+ 
+ /* format the aside as a flexbox arranged in a column */
+ .main-aside {
+  /* set up this item within the flex grid */
+  width: auto;
+  background-color: limegreen; /* TODO - change to theme color */
+  border-color: #f06449;
+  border-style: solid;
+  border-width: 3px;
+  flex-basis: auto;
+  flex-shrink: 1;
+  flex-grow: 0;
+  text-align: left;
+  align-self: stretch;
+  /* flex-grow: 0; */
+
+  /* set up the grid to contain items */
+   /* display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: flex-start; */
+ }
+ 
+ /* format the main portfolio section as a Grid with two columns */
+ .main-portfolio {
+  /* set up this item within the flexgrid */
+  /* flex-grow: 1; */
+  background-color: limegreen; /* TODO - change to theme color */
+  border-color: white;
+  border-width: 1px;
+  border-style: dashed;
+  flex-basis: auto;
+  flex-shrink: 1;
+  flex-grow: 1;
+  text-align: left;
+  align-self: stretch;
+
+  /* set up the grid to contain items */
+   /* display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: auto;
+   grid-gap: 1rem; */
+   
+ }
+
+
 }
 @media screen and (min-width: 800px) {
   .logo-container {
     padding-top: 0.5rem;
     padding-bottom: 0;
   }
+
   .logo {
     font-size: 1.5rem;
   }
