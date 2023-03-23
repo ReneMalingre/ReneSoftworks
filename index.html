@@ -1,61 +1,102 @@
 <!DOCTYPE html>
 <html lang="en-AU">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ReneSoftworks - Coder for Hire</title>
-    <meta
-      name="description"
-      content="René Malingré full-stack web developer and .Net programmer."
-    />
 
-    <!-- TODO: Add meta tags for SEO */ -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab:wght@300;400;500;600;800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- * SVG icons by Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-  </head>
-  <body>
-    <!-- header and navigation -->
-    <header>
-      <!-- set up navigation and logo header that allows for a responsive layout -->
-      <!-- inspired by Kevin Powell https://youtu.be/8QKOaTYvYUA -->
-      <div class="logo-container">
-        <h1 class="logo">Hi! I'm René.</h1>
-        <h2 class="logo-tagline">I'm here to help.</h2>
-      </div>
-      <!-- checkbox to operate the hamburger menu without js  -->
-      <input
-        type="checkbox"
-        id="nav-toggle"
-        class="nav-toggle"
-        aria-labelledby="menu"
-      />
-      <nav class="navbar">
-        <ul>
-          <li><a href="#" class="nav-link">About me</a></li>
-          <li><a href="#" class="nav-link">My projects</a></li>
-          <li><a href="#" class="nav-link">Contact me</a></li>
-          <li><a href="#" class="nav-link">Résumé</a></li>
-        </ul>
-      </nav>
-      <!-- hamburger menu icon -->
-      <label for="nav-toggle" class="nav-toggle-label">
-        <!-- empty span to hold hamburger menu icon -->
-        <span></span>
-      </label>
-    </header>
-    <!-- main content -->
-    <main>
-      <!-- main grid elements -->
-      <div class="main-grid">
-        <aside class="main-aside"><p>This is the left bit</p></aside>
-        <section class="main-portfolio"><p>This is the main bit</p></section>
-      </div>
-    </main>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReneSoftworks - Coder for Hire</title>
+  <meta name="description" content="René Malingré full-stack web developer and .Net programmer." />
+
+  <!-- TODO: Add meta tags for SEO */ -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab:wght@300;400;500;600;800&display=swap"
+    rel="stylesheet" />
+  <!-- * SVG icons by Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+</head>
+
+<body>
+  <!-- header and navigation -->
+  <header>
+    <!-- set up navigation and logo header that allows for a responsive layout -->
+    <!-- inspired by Kevin Powell https://youtu.be/8QKOaTYvYUA -->
+    <div class="logo-container">
+      <h1 class="logo">Hi! I'm René.</h1>
+      <h2 class="logo-tagline">I'm here to help.</h2>
+    </div>
+    <!-- checkbox to operate the hamburger menu without js  -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-labelledby="menu" />
+    <nav class="navbar">
+      <ul>
+        <li><a href="#" class="nav-link">About me</a></li>
+        <li><a href="#" class="nav-link">My projects</a></li>
+        <li><a href="#" class="nav-link">Contact me</a></li>
+        <li><a href="#" class="nav-link">Résumé</a></li>
+      </ul>
+    </nav>
+    <!-- hamburger menu icon -->
+    <label for="nav-toggle" class="nav-toggle-label">
+      <!-- empty span to hold hamburger menu icon -->
+      <span></span>
+    </label>
+  </header>
+  <!-- main content -->
+  <main>
+    <!-- main grid elements -->
+    <div class="main-grid">
+      <aside class="main-aside">
+        <p>This is the left bit</p>
+      </aside>
+      <section class="main-portfolio">
+        <article class="article-about">
+          <p>about me</p>
+        </article>
+        <article class="article-projects">
+          <div class="project" id="project-most-recent">
+            <h3>Project 1</h3>
+            <p>Project 1 description</p>
+            <img class="project-image" src="https://placehold.co/400x400" alt="placeholder image" />
+          </div>
+          <div class="project">
+            <h3>Project 2</h3>
+            <p>Project 2 description</p>
+            <img class="project-image" src="https://placehold.co/400x400" alt="placeholder image" />
+          </div>
+          <div class="project">
+            <h3>Project 3</h3>
+            <p>Project 3 description</p>
+            <img class="project-image" src="https://placehold.co/400x400" alt="placeholder image" />
+          </div>
+          <div class="project">
+            <h3>Project 4</h3>
+            <p>Project 4 description</p>
+            <img class="project-image" src="https://placehold.co/400x400" alt="placeholder image" />
+          </div>
+          <div class="project">
+            <h3>Project 5</h3>
+            <p>Project 5 description</p>
+            <img class="project-image" src="https://placehold.co/400x400" alt="placeholder image" />
+          </div>         
+        </article>
+        <article class="article-contact">
+          <p>contact me</p>
+        </article>
+        <article class="article-resume">
+          <p>resume</p>
+        </article>
+
+
+        <!-- end of main-portfolio -->
+      </section>
+      <!-- end of main-grid -->
+    </div>
+  </main>
+  <!-- footer -->
+  <footer>
+    <p>footer</p>
+  </footer>
+</body>
+
 </html>
