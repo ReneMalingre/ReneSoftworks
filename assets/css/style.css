@@ -36,10 +36,13 @@
 
   /* padding */
   --grid-padding: 1rem;
+
+  /* sizing */
+  --max-width: 1200px;
 }
 
 /* fix scroll padding for anchor links */
-html{
+html {
   scroll-padding-top: var(--nav-height-large);
 }
 
@@ -379,7 +382,7 @@ This resizes and reorganises the layout for larger screens */
 .article-content {
   color: var(--color-light);
   width: 100%;
-  padding: 0 1rem 1rem 1rem;
+  padding: 0 1rem 1rem;
 }
 
 .article-projects {
@@ -396,14 +399,10 @@ This resizes and reorganises the layout for larger screens */
   display: grid;
   flex-direction: column;
   grid-template-columns: 1fr;
-  grid-template-rows: 2rem 2.5rem 2fr 1fr;
-  grid-template-areas: "section" "title" "screenshot" "info";
+  grid-template-rows: 2.5rem 2fr 1fr;
+  grid-template-areas: "title" "screenshot" "info";
   background-color: var(--color-blue);
   border-radius: var(--border-radius);
-}
-
-.project-hero .article-header {
-  grid-area: section;
 }
 
 .project-hero-image {
@@ -504,15 +503,15 @@ This resizes and reorganises the layout for larger screens */
   border-radius: 3px;
 }
 
-.article#contact-me, .article#resume {
+.article#contact-me,
+.article#resume {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
- 
 }
 
-.article#contact-me{
-  margin-top:1rem;
+.article#contact-me {
+  margin-top: 1rem;
 }
 
 .contact-me-card {
@@ -520,7 +519,6 @@ This resizes and reorganises the layout for larger screens */
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
-
   align-items: center;
   padding: 0.5rem;
 }
@@ -581,4 +579,228 @@ footer {
   text-align: center;
   border: 1px solid var(--color-dark);
   border-radius: var(--border-radius);
+}
+/* Respond to larger screens, especially keeping the navigation bar formatting correct */
+@media screen and (min-width: 800px) {
+  /* hide the navigation toggle */
+  .nav-toggle-label {
+    display: none;
+  }
+
+  /* format the navigation for large screens */
+  .header-container {
+    display: grid;
+    height: var(--nav-height-large);
+
+    /* logo on the left, navigation on the right */
+    grid-template-columns: 1fr auto;
+    column-gap: 0.5em;
+  }
+
+  .logo-container {
+    margin: 0;
+    padding-top: 0.75rem;
+    padding-bottom: 0;
+  }
+
+  .logo {
+    color: var(--color-red);
+    font-size: 1.5rem;
+    grid-column: 1;
+    text-align: left;
+    padding-left: 0.5em;
+
+    /* align-self: center; */
+    font-weight: 400;
+    font-size: 1.25rem;
+  }
+
+
+  .logo-tagline {
+    display: none;
+  }
+
+  /* change properties to their inherited values or to their initial 
+  values to ensure the navigation elements display correctly on older browsers */
+  nav {
+    all: unset;
+  }
+
+  /* display the navigation horizontally */
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  nav li {
+    margin: 1em;
+    border: none;
+  }
+
+  nav a {
+    opacity: 1;
+    position: relative;
+    font-size: 1rem;
+  }
+
+  nav a::before {
+    content: "";
+    display: block;
+    height: 5px;
+    background: var(--color-yellow);
+    position: absolute;
+    top: 1.5em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+
+  nav a:hover::before {
+    transform: scale(1, 1);
+  }
+
+  .main-aside {
+    max-width: 20rem;
+  }
+
+  /* set up the main enclosing grid with the aside on top and the main portfolio section below */
+  .main-grid {
+    padding-top: var(--nav-height-large);
+    display: flex;
+    flex-flow: row nowrap;
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .main-portfolio {
+    flex: 1 1 auto;
+    max-width: var(--max-width);
+  }
+
+  .article-projects {
+    width: auto;
+  }
+
+  .logo-container {
+    padding-top: 0.5rem;
+    padding-bottom: 0;
+  }
+
+  .logo-tagline {
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width: 319px) {
+  .logo-tagline {
+    display: none;
+  }
+}
+
+/* largest screen sizing: change to a 2*4 grid to hold the projects
+ with the hero project taking up 2 columns and 2 rows  */
+
+ @media screen and (min-width: 970px) {
+  header {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header-container {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    height: var(--nav-height-large);
+
+    /* logo on the left, navigation on the right */
+    grid-template-columns: 1fr auto;
+    column-gap: 0.5em;
+  }
+  .main-grid {
+    padding-top: var(--nav-height-large);
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* set up a grid for the main portfolio section */
+  .article-projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+      "hero hero"
+      "project2 project3"
+      "project4 project5";
+    width: auto;
+    column-gap: 1rem;
+  }
+
+  /* the internals are flexbox, 2 elements side by side */
+  .project-hero {
+    grid-area: hero;
+  }
+
+  .project {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-info {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--color-dark);
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  .project-title {
+    grid-area: title;
+    color: var(--color-light);
+    font-weight: 500;
+    font-size: clamp(1rem, calc(50vw / 20), 1.5rem);
+    text-shadow: var(--color-dark) 0 0 0.25rem;
+    align-self: center;
+  }
+
+  .project-tech,
+  .project-tech a {
+    font-style: italic;
+    text-decoration: none;
+    color: var(--color-dark);
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  .project-tech span {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--color-light);
+    text-shadow: var(--color-dark) 0 0 0.25rem;
+  }
+
+  .project img {
+    grid-area: screenshot;
+    max-width: 100%;
+  }
+
+  .project-description {
+    font-size: 1rem;
+    column-width: 20rem;
+  }
+
+  /* set footer to same size as header and content on larger screens */
+  footer {
+    max-width: var(--max-width);
+    margin: auto;
+  }
 }
