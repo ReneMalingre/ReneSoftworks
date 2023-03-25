@@ -6,12 +6,7 @@
       display: none;
     }
   
-    header {
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
+    
     /* format the navigation for large screens */
     .header-container {
       display: grid;
@@ -96,27 +91,20 @@
       padding-top: var(--nav-height-large);
       display: flex;
       flex-flow: row nowrap;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
     }
   
     .main-portfolio {
       flex: 1 1 auto;
+      max-width: 1200px;
     }
-  
+    
     .article-projects {
       width: auto;
     }
   
-    
-    footer {
-      padding: 1rem;
-      background-color: var(--color-dark);
-      color: var(--color-light);
-      text-align: center;
-    }
-  }
-  
-  /* Handle navigation resizing for intermediate screen sizes */
-  /* @media screen and (min-width: 800px) { */
     .logo-container {
       padding-top: 0.5rem;
       padding-bottom: 0;
@@ -129,7 +117,8 @@
     .logo-tagline {
       display: inline-block;
     }
-  /* } */
+  
+  } 
   
   @media screen and (max-width: 319px) {
     .logo-tagline {

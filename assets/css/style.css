@@ -25,25 +25,10 @@
   --color-dark: #0d1f2d;
   --color-light: #f5f5f5;
   --color-yellow-75: rgba(255 188 66 / 75%);
-
-  /* font sizes */
-
-  /* font weights */
-
-  /* line heights */
-
-  /* letter spacings */
+  --color-light-trns: rgba(245 245 245 / 50%);
 
   /* border radius */
   --border-radius: 20px;
-
-  /* box shadows */
-
-  /* transition speeds */
-
-  /* z-index */
-
-  /* media queries */
 
   /* heights */
   --nav-height-large: 3.5rem;
@@ -51,10 +36,15 @@
 
   /* padding */
   --grid-padding: 1rem;
-
-  /* other */
 }
 
+/* fix scroll padding for anchor links */
+html{
+  scroll-padding-top: var(--nav-height-large);
+}
+
+/* set some default styles for the page
+font is from google fonts */
 body {
   font-family: "Roboto Slab", Roboto, system-ui, sans-serif;
   font-weight: 400;
@@ -63,10 +53,10 @@ body {
   color: var(--color-dark);
 }
 
-/* navigation styles */
+/* navigation bar 
+inspired by Kevin Powell https://youtu.be/8QKOaTYvYUA */
 .header-container {
   background-color: var(--color-dark);
-  /* text-align: center; */
   position: fixed;
   z-index: 999;
   left: 0;
@@ -74,24 +64,22 @@ body {
   right: 0;
   bottom: 0;
   height: var(--nav-height-small);
-  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .logo-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin-top: 0.75rem;
   align-items: baseline;
-
-  /* padding-top: 0.5em; */
   margin-left: 3.5rem;
-
-  /* padding-bottom: 0.5rem; */
   height: var(--nav-height-small);
   overflow: hidden;
 }
 
+/* simple Logo and tagline */
 .logo {
   color: var(--color-red);
   font-weight: 400;
@@ -105,7 +93,8 @@ body {
   padding-left: 1em;
 }
 
-/* responsive navigation toggle - hide it by moving out of the screen but allow it to be tabbable */
+/* responsive navigation toggle - hide it by moving out of the screen but allow it to be tabbable
+ uses a checkbox to avoid the need for javascript */
 .nav-toggle {
   position: absolute !important;
   top: -9999px !important;
@@ -133,11 +122,12 @@ body {
   display: block;
   width: 1.5rem;
   height: 2px;
-  background-color: white; /* TODO - change to theme color */
+  background-color: var(--color-light);
   border-radius: 2px;
   position: relative;
 }
 
+/* set the absolute position for correct display and usage */
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
   content: "";
@@ -152,6 +142,7 @@ body {
   top: 7px;
 }
 
+/* top bar navigation elements */
 nav {
   position: absolute;
   text-align: left;
@@ -168,7 +159,7 @@ nav ul {
   margin: 0;
   padding-top: 2px;
   list-style: none;
-  background-color: var(--color-dark );
+  background-color: var(--color-dark);
 }
 
 nav li {
@@ -182,8 +173,6 @@ nav a {
   color: var(--color-light);
   text-decoration: none;
   font-size: 1rem;
-  
-  /* text-transform: uppercase; */
   opacity: 0;
   transition: opacity 150ms ease-in-out;
 }
@@ -201,27 +190,27 @@ nav a:hover {
   transition: opacity 250ms ease-in-out 50ms;
 }
 
-/* set up the main enclosing grid with the aside on top and the main portfolio section below */
+/* main content grid */
+/* set up the main enclosing grid with the aside on top and the main portfolio section below
+and adjust to side-by-side with media queries later for larger screens */
 .main-grid {
   padding-top: var(--nav-height-small);
-  margin-left: 1rem;
-  margin-right: 1rem;
   display: flex;
   flex-direction: column;
   min-width: 300px;
-
-  /* flex-grow: 1; */
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
   justify-content: flex-start;
   align-items: flex-start;
   column-gap: 1rem;
 }
 
+/* Summary section: at the top for small screens, on the left for larger screens */
+/* quick information about me and quick links to info */
 .main-aside {
-  /* set up this item within the flex grid */
   width: 100%;
-  /* TODO - change to theme color */
   background-color: var(--color-light);
-  /* border-color: #f06449; */
   border-style: solid;
   border-width: 3px;
   text-align: left;
@@ -229,14 +218,6 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  /* make this element sized to the content */
-
-  /* set up the grid to contain items */
-
-  /* display: flex;
- flex-direction: column;
- justify-content: flex-start;
- align-items: flex-start; */
 }
 
 aside {
@@ -248,6 +229,7 @@ aside {
   padding: 1rem;
   background-color: var(--color-light);
   border-radius: var(--border-radius);
+  margin-bottom: 1rem;
 }
 
 .intro {
@@ -258,6 +240,18 @@ aside {
   padding: 1rem;
   background-color: var(--color-blue);
   border-radius: 20px;
+}
+
+/* image and caption */
+.intro img {
+  max-width: 10rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border-color: var(--color-yellow);
+  border-width: 3px;
+  border-style: solid;
+  filter: drop-shadow(1px 1px 0.25rem var(--color-yellow));
 }
 
 figcaption {
@@ -275,17 +269,7 @@ figure p {
   color: var(--color-dark);
 }
 
-.intro img {
-  max-width: 10rem;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 50%;
-  border-color: var(--color-yellow);
-  border-width: 3px;
-  border-style: solid;
-  filter: drop-shadow(1px 1px 0.25rem var(--color-yellow));
-}
-
+/* Summary information in logical sections */
 .summary-card {
   display: flex;
   flex-direction: column;
@@ -321,9 +305,7 @@ figure p {
   text-decoration: none;
 }
 
-.summary-card-content p:hover,
 .summary-card-content a:hover {
-  /* color: var(--color-yellow); */
   font-weight: 500;
   cursor: pointer;
 }
@@ -341,6 +323,7 @@ figure p {
   padding: 0;
 }
 
+/* indicate if the SVG is a link */
 .summary-card-icon[data-is-link="true"]:hover svg {
   fill: var(--color-yellow);
   width: 1.4rem;
@@ -357,11 +340,12 @@ figure p {
   font-style: italic;
 }
 
-/* format the main portfolio section as a Grid with two columns */
+/* The main section of the portfolio, containing the about me, projects and contact us articles.
+This resizes and reorganises the layout for larger screens */
 .main-portfolio {
   background-color: var(--color-dark);
-
-  /* make this element expand to the rest of the screen */
+  min-width: 300px;
+  max-width: 500px;
   flex: 1 0 auto;
   text-align: left;
 
@@ -373,39 +357,90 @@ figure p {
   align-content: stretch;
 }
 
-.article-about {
-  width: 100%;
+.article-header {
+  color: var(--color-yellow);
+  font-size: 1.5rem;
+  text-shadow: var(--color-dark) 0 0 0.15rem;
+  padding-left: 1rem;
+}
+
+.article {
   display: flex;
-  border: #ffbc42 solid 2px;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  border: var(--color-yellow) solid 2px;
   padding-top: 1rem;
+  background-color: var(--color-dark);
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+}
+
+.article-content {
+  color: var(--color-light);
+  width: 100%;
+  padding: 0 1rem 1rem 1rem;
 }
 
 .article-projects {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  background-color: var(--color-dark);
+  border: none;
 }
 
+/* unique display for the first project to emphasise it */
 .project-hero {
   padding: 0.5rem;
-  display: flex;
+  display: grid;
   flex-direction: column;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2rem 2.5rem 2fr 1fr;
+  grid-template-areas: "section" "title" "screenshot" "info";
   background-color: var(--color-blue);
   border-radius: var(--border-radius);
-  box-shadow: 3px 3px 0.5rem var(--color-blue);
 }
 
+.project-hero .article-header {
+  grid-area: section;
+}
+
+.project-hero-image {
+  grid-area: screenshot;
+  background-color: var(--color-blue);
+  background-image: url("../images/portfolio/horiseon-refactoring.png");
+  background-size: cover;
+  background-position: center;
+  border: 3px solid var(--color-dark);
+  border-radius: 3px;
+}
+
+.project-hero-info {
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--color-dark);
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+/* standard project display */
 .project {
   padding: 0.5rem;
   display: grid;
   grid-template-columns: 4fr 5fr;
   grid-template-rows: auto;
-  grid-template-areas: "title title"
-  "info screenshot";
+  grid-template-areas:
+    "title title"
+    "info screenshot";
   column-gap: 0.5rem;
   background-color: var(--color-blue);
   border-radius: var(--border-radius);
-  box-shadow: 3px 3px 0.5rem var(--color-blue);
   margin-top: 1rem;
 }
 
@@ -413,12 +448,13 @@ figure p {
   grid-area: info;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* TODO - change in large screen */
+  justify-content: flex-start;
   align-items: center;
   color: var(--color-dark);
   font-size: 1rem;
   font-weight: 400;
   text-decoration: none;
+  padding: 0.5rem;
 }
 
 .project-title {
@@ -433,6 +469,7 @@ figure p {
 .project-tech,
 .project-tech a {
   font-style: italic;
+  font-size: 0.9rem;
   align-self: flex-start;
   text-decoration: none;
   color: var(--color-dark);
@@ -454,6 +491,8 @@ figure p {
   object-fit: cover;
   justify-self: center;
   align-self: center;
+  border: 3px solid var(--color-dark);
+  border-radius: 3px;
 }
 
 .project-hero img {
@@ -461,15 +500,85 @@ figure p {
   width: 100%;
   object-fit: cover;
   justify-self: center;
+  border: 3px solid var(--color-red);
+  border-radius: 3px;
+}
+
+.article#contact-me, .article#resume {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+ 
+}
+
+.article#contact-me{
+  margin-top:1rem;
+}
+
+.contact-me-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  align-items: center;
+  padding: 0.5rem;
+}
+
+/* Contact me links */
+.contact-me-card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+
+.contact-me-card-content p,
+.contact-me-card-content a {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--color-light);
+  margin-left: 0;
+  text-decoration: none;
+}
+
+.contact-me-card-content a:hover {
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.contact-me-card-icon,
+.contact-me-card-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 1rem;
+  fill: var(--color-blue);
+}
+
+.contact-me-card-icon a {
+  margin-left: 0;
+  padding: 0;
+}
+
+.contact-me-card-icon[data-is-link="true"]:hover svg {
+  fill: var(--color-yellow);
+  width: 1.4rem;
+  margin-right: 0.8rem;
+  transform: rotate(8deg);
+  cursor: pointer;
+}
+
+footer {
   padding: 1rem;
-}
-
-.article-contact {
-  display: flex;
-  border: #ffbc42 solid 2px;
-}
-
-.article-resume {
-  display: flex;
-  border: #ffbc42 solid 2px;
+  margin: 1rem;
+  background-color: var(--color-light);
+  color: var(--color-red);
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+  border: 1px solid var(--color-dark);
+  border-radius: var(--border-radius);
 }

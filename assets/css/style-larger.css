@@ -1,131 +1,105 @@
-
 /* largest screen sizing: change to a 2*4 grid to hold the projects
  with the hero project taking up 2 columns and 2 rows  */
 
 @media screen and (min-width: 970px) {
-    .main-grid {
-        padding-top: var(--nav-height-large);
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* set up a grid for the main portfolio section */
-    .article-projects {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: repeat(7, 1fr);
-      grid-template-areas: "hero hero"
-        "hero hero"
-        "hero hero"
-        "project2 project3"
-        "project2 project3"
-        "project4 project5"
-        "project4 project5";
-      width: auto;
-      column-gap: 0.5rem;
-      row-gap: 0.5rem;
-    }
-    
-    /* the internals are flexbox, 2 elements side by side */
-    .project-hero {
-        padding: 2rem;
-        display: grid;
-       grid-template-columns: 1fr 1fr;
-       grid-template-rows: auto;
-        grid-template-areas: "info screenshot";
-        grid-area: hero;
-    }
-
-    #project-2 {
-      grid-area: project2;
-    }
-    
-    #project-3 {
-      grid-area: project3;
-    }
-
-    #project-4 {
-      grid-area: project4;
-    }
-
-    #project-5 {
-      grid-area: project5;
-    }
-
-    /* .project {
-        padding: 0.5rem;
-        display: grid;
-       grid-template-columns: 1fr 2fr;
-       grid-template-rows: auto;
-        grid-template-areas: "info screenshot";
-      } */
-      
-    .project {
-        display: flex;
-        flex-direction: column;
-    }
-
-
-    .project-info {
-      grid-area: info;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start; /* TODO - change in large screen */
-      align-items: center;
-      color: var(--color-dark);
-      font-size: 1rem;
-      font-weight: 400;
-      text-decoration: none;
-      /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
-    }
-    
-    .project-title {
-      grid-area: title;
-      color: var(--color-light);
-      font-weight: 500;
-      font-size: clamp(1rem, calc(50vw / 20), 1.5rem);
-      text-shadow: var(--color-dark) 0 0 0.25rem;
-      align-self: center;
-    }
-    
-    .project-hero .project-title {
-      font-size: clamp(1rem, calc(50vw / 20), 2rem);
-    }
-  
-    .project-tech, .project-tech a {
-      font-style: italic;
-      text-decoration: none;
-      color: var(--color-dark);
-      padding-top: 0.5rem;
-      padding-left: 0.5rem;
-    }
-    
-    .project-tech span {
-      font-style: normal;
-      font-weight: 500;
-      color: var(--color-light);
-      text-shadow: var(--color-dark) 0 0 0.25rem;
-    }
-    
-    .project img {
-      grid-area: screenshot;
-      max-width: 100%;
-      padding: 1rem;
-    }
-   
-    .project-hero img {
-        grid-area: screenshot;
-        max-width: 100%;
-        justify-self: center; 
-        /* align-self: center; */
-        padding: 1rem;
-        padding-top: 3rem;
-      }
-    
-    .project-description {
-      font-size: 1rem;
-      column-width: 16rem;
-    }
-  
+  header {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
   }
+
+  .header-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    height: var(--nav-height-large);
+
+
+    /* logo on the left, navigation on the right */
+    grid-template-columns: 1fr auto;
+    column-gap: 0.5em;
+  }
+  .main-grid {
+    padding-top: var(--nav-height-large);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* set up a grid for the main portfolio section */
+  .article-projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+      "hero hero"
+      "project2 project3"
+      "project4 project5";
+    width: auto;
+    column-gap: 1rem;
+  }
+
+  /* the internals are flexbox, 2 elements side by side */
+  .project-hero {
+    grid-area: hero;
+  }
+
+  .project {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-info {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--color-dark);
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  .project-title {
+    grid-area: title;
+    color: var(--color-light);
+    font-weight: 500;
+    font-size: clamp(1rem, calc(50vw / 20), 1.5rem);
+    text-shadow: var(--color-dark) 0 0 0.25rem;
+    align-self: center;
+  }
+
+  .project-tech,
+  .project-tech a {
+    font-style: italic;
+    text-decoration: none;
+    color: var(--color-dark);
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  .project-tech span {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--color-light);
+    text-shadow: var(--color-dark) 0 0 0.25rem;
+  }
+
+  .project img {
+    grid-area: screenshot;
+    max-width: 100%;
+  }
+
+  .project-description {
+    font-size: 1rem;
+    column-width: 20rem;
+  }
+
+  /* set footer to same size as header and content on larger screens */
+  footer{
+    max-width: 1200px;
+    margin:auto;
+  }
+}
