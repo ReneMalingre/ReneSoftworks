@@ -224,11 +224,9 @@ and adjust to side-by-side with media queries later for larger screens */
 }
 
 aside {
-  grid-area: sidebar;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-content: center;
   padding: 1rem;
   background-color: var(--color-light);
   border-radius: var(--border-radius);
@@ -357,7 +355,6 @@ This resizes and reorganises the layout for larger screens */
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  align-content: stretch;
 }
 
 .article-header {
