@@ -17,6 +17,7 @@
   padding-inline-end: 0;
 }
 
+/* set up the root variables for the theme colours, border radius and other sizing */
 :root {
   /* theme colours */
   --color-blue: #00a7e1;
@@ -34,16 +35,26 @@
   --nav-height-large: 3.5rem;
   --nav-height-small: 3rem;
 
-  /* padding */
-  --grid-padding: 1rem;
+  /* padding, gaps, etc */
+  --standard-spacing: 1rem;
 
-  /* sizing */
+  /* site sizing */
   --max-width: 1200px;
+  --aside-min-width: 300px;
+  --aside-max-width: 500px;
+
+  /* fonts and svg */
+  --normal-font-size: 1rem;
+  --small-font-size: 0.9rem;
+  --large-font-size: 1.5rem;
+  --svg-normal-size: 1.2rem;
+  --svg-hovered-size: 1.4rem;
 }
 
-/* fix scroll padding for anchor links */
+/* fix scroll padding for anchor links due to 'fixed' navigation bar */
 html {
   scroll-padding-top: var(--nav-height-large);
+  font-size: 16px;
 }
 
 /* set some default styles for the page
@@ -51,7 +62,6 @@ font is from google fonts */
 body {
   font-family: "Roboto Slab", Roboto, system-ui, sans-serif;
   font-weight: 400;
-  font-size: 16px;
   background-color: var(--color-dark);
   color: var(--color-dark);
 }
@@ -67,7 +77,7 @@ inspired by Kevin Powell https://youtu.be/8QKOaTYvYUA */
   right: 0;
   bottom: 0;
   height: var(--nav-height-small);
-  max-width: 800px;
+  max-width: var(--max-width);
   margin-left: auto;
   margin-right: auto;
 }
@@ -75,11 +85,11 @@ inspired by Kevin Powell https://youtu.be/8QKOaTYvYUA */
 .logo-container {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: baseline;
-  margin-left: 3.5rem;
   height: var(--nav-height-small);
   overflow: hidden;
+
 }
 
 /* simple Logo and tagline */
@@ -92,7 +102,7 @@ inspired by Kevin Powell https://youtu.be/8QKOaTYvYUA */
 .logo-tagline {
   color: var(--color-light);
   font-weight: 300;
-  font-size: 1rem;
+  font-size: var(--normal-font-size);
   padding-left: 1em;
 }
 
@@ -123,7 +133,7 @@ inspired by Kevin Powell https://youtu.be/8QKOaTYvYUA */
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
   display: block;
-  width: 1.5rem;
+  width: var(--large-font-size);
   height: 2px;
   background-color: var(--color-light);
   border-radius: 2px;
@@ -175,7 +185,7 @@ nav li {
 nav a {
   color: var(--color-light);
   text-decoration: none;
-  font-size: 1rem;
+  font-size: var(--normal-font-size);
   opacity: 0;
   transition: opacity 150ms ease-in-out;
 }
@@ -193,24 +203,24 @@ nav a:hover {
   transition: opacity 250ms ease-in-out 50ms;
 }
 
-/* main content grid */
-/* set up the main enclosing grid with the aside on top and the main portfolio section below
+/* main content grid
+set up the main enclosing grid with the aside on top and the main portfolio section below
 and adjust to side-by-side with media queries later for larger screens */
 .main-grid {
   padding-top: var(--nav-height-small);
   display: flex;
   flex-direction: column;
-  min-width: 300px;
-  max-width: 500px;
+  min-width: var(--aside-min-width);
+  max-width: var(--aside-max-width);
   margin-left: auto;
   margin-right: auto;
   justify-content: flex-start;
   align-items: flex-start;
-  column-gap: 1rem;
+  column-gap: var(--standard-spacing);
 }
 
-/* Summary section: at the top for small screens, on the left for larger screens */
-/* quick information about me and quick links to info */
+/* Summary section: at the top for small screens, on the left for larger screens
+   quick information about me and quick links to info */
 .main-aside {
   width: 100%;
   background-color: var(--color-light);
@@ -227,10 +237,10 @@ aside {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1rem;
+  padding: var(--standard-spacing);
   background-color: var(--color-light);
   border-radius: var(--border-radius);
-  margin-bottom: 1rem;
+  margin-bottom: var(--standard-spacing);
 }
 
 .intro {
@@ -238,7 +248,7 @@ aside {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: var(--standard-spacing);
   background-color: var(--color-blue);
   border-radius: 20px;
 }
@@ -257,14 +267,14 @@ aside {
 
 figcaption {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: var(--large-font-size);
   font-weight: 400;
   color: var(--color-dark);
   padding-top: 0.5ch;
 }
 
 figure p {
-  font-size: 1rem;
+  font-size: var(--normal-font-size);
   font-weight: 400;
   text-align: center;
   color: var(--color-dark);
@@ -285,7 +295,7 @@ figure p {
   font-weight: 500;
   line-height: 2rem;
   color: var(--color-red);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .summary-card-content {
@@ -293,13 +303,13 @@ figure p {
   flex-direction: row;
   justify-content: flex-start;
   align-content: center;
-  padding: 0;
+  padding: 2px;
   background-color: var(--color-light);
 }
 
 .summary-card-content p,
 .summary-card-content a {
-  font-size: 1rem;
+  font-size: var(--normal-font-size);
   font-weight: 400;
   color: var(--color-dark);
   margin-left: 0.5rem;
@@ -313,9 +323,9 @@ figure p {
 
 .summary-card-icon,
 .summary-card-icon svg {
-  width: 1.2rem;
-  height: 1.2rem;
-  margin-right: 1rem;
+  width: var(--svg-normal-size);
+  height: var(--svg-normal-size);
+  margin-right: var(--standard-spacing);
   fill: var(--color-blue);
 }
 
@@ -327,16 +337,16 @@ figure p {
 /* indicate if the SVG is a link */
 .summary-card-icon[data-is-link="true"]:hover svg {
   fill: var(--color-yellow);
-  width: 1.4rem;
+  width: var(--svg-hovered-size);
   margin-right: 0.8rem;
   transform: rotate(8deg);
   cursor: pointer;
 }
 
 .summary-card-content li {
-  padding-left: 1rem;
+  padding-left: var(--standard-spacing);
   list-style-type: none;
-  font-size: 0.9rem;
+  font-size: var(--small-font-size);
   font-weight: 400;
   font-style: italic;
 }
@@ -345,8 +355,8 @@ figure p {
 This resizes and reorganises the layout for larger screens */
 .main-portfolio {
   background-color: var(--color-dark);
-  min-width: 300px;
-  max-width: 500px;
+  min-width: var(--aside-min-width);
+  max-width: var(--aside-max-width);
   flex: 1 0 auto;
   text-align: left;
 
@@ -358,10 +368,11 @@ This resizes and reorganises the layout for larger screens */
 }
 
 .article-header {
+  margin: 0 0 0.5rem; /* reset the default margin in normalize.css */
   color: var(--color-yellow);
-  font-size: 1.5rem;
+  font-size: var(--large-font-size);
   text-shadow: var(--color-dark) 0 0 0.15rem;
-  padding-left: 1rem;
+  padding-left: var(--standard-spacing);
 }
 
 .article {
@@ -370,16 +381,16 @@ This resizes and reorganises the layout for larger screens */
   justify-content: flex-start;
   width: 100%;
   border: var(--color-yellow) solid 2px;
-  padding-top: 1rem;
+  padding-top: var(--standard-spacing);
   background-color: var(--color-dark);
   border-radius: var(--border-radius);
-  margin-bottom: 1rem;
+  margin-bottom: var(--standard-spacing);
 }
 
 .article-content {
   color: var(--color-light);
   width: 100%;
-  padding: 0 1rem 1rem;
+  padding: 0 var(--standard-spacing) var(--standard-spacing);
 }
 
 .article-projects {
@@ -402,6 +413,14 @@ This resizes and reorganises the layout for larger screens */
   border-radius: var(--border-radius);
 }
 
+.project-hero:hover,
+.project-hero:focus,
+.project:hover,
+.project:focus:hover {
+  background-color: var(--color-yellow);
+  color: var(--color-dark);
+}
+
 .project-hero-image {
   grid-area: screenshot;
   background-color: var(--color-blue);
@@ -419,7 +438,7 @@ This resizes and reorganises the layout for larger screens */
   justify-content: flex-start;
   align-items: center;
   color: var(--color-dark);
-  font-size: 1.5rem;
+  font-size: var(--large-font-size);
   font-weight: 500;
   text-decoration: none;
   padding: 0.5rem;
@@ -437,7 +456,7 @@ This resizes and reorganises the layout for larger screens */
   column-gap: 0.5rem;
   background-color: var(--color-blue);
   border-radius: var(--border-radius);
-  margin-top: 1rem;
+  margin-top: var(--standard-spacing);
 }
 
 .project-info {
@@ -447,7 +466,7 @@ This resizes and reorganises the layout for larger screens */
   justify-content: flex-start;
   align-items: center;
   color: var(--color-dark);
-  font-size: 1rem;
+  font-size: var(--normal-font-size);
   font-weight: 400;
   text-decoration: none;
   padding: 0.5rem;
@@ -456,7 +475,7 @@ This resizes and reorganises the layout for larger screens */
 .project-title {
   grid-area: title;
   color: var(--color-light);
-  font-size: 1.5rem;
+  font-size: var(--large-font-size);
   font-weight: 500;
   text-shadow: var(--color-dark) 0 0 0.15rem;
   text-align: center;
@@ -465,12 +484,12 @@ This resizes and reorganises the layout for larger screens */
 .project-tech,
 .project-tech a {
   font-style: italic;
-  font-size: 0.9rem;
+  font-size: var(--small-font-size);
   align-self: flex-start;
   text-decoration: none;
   color: var(--color-dark);
   padding-top: 0.5rem;
-  padding-left: 1rem;
+  padding-left: var(--standard-spacing);
 }
 
 .project-tech span {
@@ -508,7 +527,7 @@ This resizes and reorganises the layout for larger screens */
 }
 
 .article#contact-me {
-  margin-top: 1rem;
+  margin-top: var(--standard-spacing);
 }
 
 .contact-me-card {
@@ -517,7 +536,7 @@ This resizes and reorganises the layout for larger screens */
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0 0.5rem 0.5rem;
 }
 
 /* Contact me links */
@@ -526,14 +545,14 @@ This resizes and reorganises the layout for larger screens */
   flex-direction: row;
   justify-content: flex-start;
   align-content: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 1rem;
+  padding-left: var(--standard-spacing);
+  padding-right: var(--standard-spacing);
+  padding-bottom: 0.5rem;
 }
 
 .contact-me-card-content p,
 .contact-me-card-content a {
-  font-size: 0.9rem;
+  font-size: var(--small-font-size);
   font-weight: 300;
   color: var(--color-light);
   margin-left: 0;
@@ -547,9 +566,9 @@ This resizes and reorganises the layout for larger screens */
 
 .contact-me-card-icon,
 .contact-me-card-icon svg {
-  width: 1.2rem;
-  height: 1.2rem;
-  margin-right: 1rem;
+  width: var(--svg-normal-size);
+  height: var(--svg-normal-size);
+  margin-right: var(--standard-spacing);
   fill: var(--color-blue);
 }
 
@@ -560,15 +579,14 @@ This resizes and reorganises the layout for larger screens */
 
 .contact-me-card-icon[data-is-link="true"]:hover svg {
   fill: var(--color-yellow);
-  width: 1.4rem;
+  width: var(--svg-hovered-size);
   margin-right: 0.8rem;
   transform: rotate(8deg);
   cursor: pointer;
 }
 
 footer {
-  padding: 1rem;
-  margin: 1rem;
+  padding: var(--standard-spacing);
   background-color: var(--color-light);
   color: var(--color-red);
   font-size: 1.2rem;
@@ -577,6 +595,7 @@ footer {
   border: 1px solid var(--color-dark);
   border-radius: var(--border-radius);
 }
+
 /* Respond to larger screens, especially keeping the navigation bar formatting correct */
 @media screen and (min-width: 800px) {
   /* hide the navigation toggle */
@@ -588,33 +607,26 @@ footer {
   .header-container {
     display: grid;
     height: var(--nav-height-large);
-
+  
     /* logo on the left, navigation on the right */
     grid-template-columns: 1fr auto;
     column-gap: 0.5em;
   }
 
   .logo-container {
+    justify-content: flex-start;
     margin: 0;
-    padding-top: 0.75rem;
+    padding-top: 0;
     padding-bottom: 0;
   }
 
   .logo {
     color: var(--color-red);
-    font-size: 1.5rem;
+    font-size: var(--large-font-size);
+    font-weight: 500;
     grid-column: 1;
     text-align: left;
     padding-left: 0.5em;
-
-    /* align-self: center; */
-    font-weight: 400;
-    font-size: 1.25rem;
-  }
-
-
-  .logo-tagline {
-    display: none;
   }
 
   /* change properties to their inherited values or to their initial 
@@ -638,7 +650,7 @@ footer {
   nav a {
     opacity: 1;
     position: relative;
-    font-size: 1rem;
+    font-size: var(--standard-spacing);
   }
 
   nav a::before {
@@ -659,7 +671,7 @@ footer {
   }
 
   .main-aside {
-    max-width: 20rem;
+    max-width: 25rem;
   }
 
   /* set up the main enclosing grid with the aside on top and the main portfolio section below */
@@ -680,15 +692,6 @@ footer {
   .article-projects {
     width: auto;
   }
-
-  .logo-container {
-    padding-top: 0.5rem;
-    padding-bottom: 0;
-  }
-
-  .logo-tagline {
-    display: inline-block;
-  }
 }
 
 @media screen and (max-width: 319px) {
@@ -700,17 +703,14 @@ footer {
 /* largest screen sizing: change to a 2*4 grid to hold the projects
  with the hero project taking up 2 columns and 2 rows  */
 
- @media screen and (min-width: 970px) {
+@media screen and (min-width: 970px) {
   header {
-    max-width: var(--max-width);
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
 
   .header-container {
-    max-width: var(--max-width);
-    margin-left: auto;
-    margin-right: auto;
     display: grid;
     height: var(--nav-height-large);
 
@@ -718,6 +718,7 @@ footer {
     grid-template-columns: 1fr auto;
     column-gap: 0.5em;
   }
+
   .main-grid {
     padding-top: var(--nav-height-large);
     max-width: var(--max-width);
@@ -735,7 +736,7 @@ footer {
       "project2 project3"
       "project4 project5";
     width: auto;
-    column-gap: 1rem;
+    column-gap: var(--standard-spacing);
   }
 
   /* the internals are flexbox, 2 elements side by side */
@@ -755,7 +756,7 @@ footer {
     justify-content: flex-start;
     align-items: center;
     color: var(--color-dark);
-    font-size: 1rem;
+    font-size: var(--normal-font-size);
     font-weight: 400;
     text-decoration: none;
   }
@@ -764,7 +765,11 @@ footer {
     grid-area: title;
     color: var(--color-light);
     font-weight: 500;
-    font-size: clamp(1rem, calc(50vw / 20), 1.5rem);
+    font-size: clamp(
+      var(--normal-font-size),
+      calc(50vw / 20),
+      var(--large-font-size)
+    );
     text-shadow: var(--color-dark) 0 0 0.25rem;
     align-self: center;
   }
@@ -791,7 +796,7 @@ footer {
   }
 
   .project-description {
-    font-size: 1rem;
+    font-size: var(--normal-font-size);
     column-width: 20rem;
   }
 

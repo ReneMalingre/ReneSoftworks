@@ -9,6 +9,7 @@
       content="René Malingré full-stack web developer and .Net programmer."
     />
     <meta name="keywords" content="René Malingré, ReneSoftworks, .Net, C#, C++, CSS, HTML, API, integration,web development, coding, developer, programmer, RESTful APIs, VB6, VB.NET, C#" />
+    <link rel="stylesheet" href="./assets/css/normalize.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <!-- Google Fonts links for Roboto font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,11 +52,17 @@
         <span></span>
       </label>
     </header>
-    <!-- main content -->
+
+    <!-- webpage content, CSS will contain it within a grid for layout purposes -->
     <main>
+
       <!-- main grid elements -->
       <div class="main-grid">
+
+        <!--the quick-view or summary section defined as an aside -->
         <aside class="main-aside">
+
+          <!-- intro image -->
           <article class="intro">
             <figure>
               <img
@@ -70,8 +77,7 @@
 
           <!-- About me summary card -->
           <article class="summary-card">
-            <h3>About me</h3>
-          
+            <h3>About me</h3>          
             <div class="summary-card-content">
               <div class="summary-card-icon" data-is-link="true">
                 <a href="https://www.google.com/maps/place/Adelaide+SA+5000,+Australia/" target="_blank" rel="noopener noreferrer">
@@ -121,6 +127,7 @@
               </div>
               <p>Full-stack development</p>
             </div>
+
             <!-- Skills detail -->
             <div class="summary-card-content">
               <div class="summary-card-icon"></div>
@@ -157,7 +164,7 @@
                 </svg>
               </a>
               </div>
-              <a href="#project-calc">Optical calculator</a>
+              <a href="#project-calc">Optical Calculator</a>
             </div>
 
             <!-- Code Snippet Cheatsheet -->
@@ -204,6 +211,7 @@
           <!-- Contact me Summary -->
           <article class="summary-card">
             <h3>Contact me</h3>
+
             <!-- Telephone -->
             <div class="summary-card-content">
               <div class="summary-card-icon" data-is-link="true">
@@ -236,6 +244,8 @@
           <!-- Resume Summary-->
           <article class="summary-card">
             <h3>Résumé</h3>
+
+            <!-- Résumé: link to file -->
             <div class="summary-card-content">
               <div class="summary-card-icon" data-is-link="true">
                 <a href="assets/docs/renemalingre_resume.pdf" target="_blank" rel="noopener">
@@ -252,7 +262,7 @@
           </article>
         </aside>
 
-        <!-- The main content section -->
+        <!-- The main content section containing About me, My projects, Contact me and Resume articles -->
         <section class="main-portfolio">
 
            <!-- About me section -->
@@ -273,7 +283,7 @@
             </div>
           </article>
 
-          <!-- My projects section -->
+          <!-- My projects section header -->
           <article class="article" id="my-projects">
             <h1 class="article-header" >My projects</h1>
             <div class="article-content">
@@ -283,7 +293,7 @@
             </div>
           </article>
 
-          <!-- The projects -->
+          <!-- The actual projects -->
           <article class="article-projects">
             
             <!-- the Hero project: Accessibility Refactoring -->
@@ -445,7 +455,7 @@
             </div>
           </article>
 
-          <!-- Resume Article -->
+          <!-- Résumé Article -->
           <article class="article" id="resume">
             <!-- Link to PDF of resume -->
             <h1 class="article-header">Résumé</h1>
@@ -471,7 +481,7 @@
       </div>
     </main>
 
-    <!-- footer -->
+    <!-- footer, keeping it simple -->
     <footer>
       <p>Rene Softworks &#169; René Malingré 2023</p>
     </footer>
