@@ -22,15 +22,23 @@ There are links to the deployed applications directly from the portfolio website
 
 **Note:** The screenshots below are of the portfolio website in different screen sizes. The website is responsive and will adapt to the screen size of the device it is being viewed on.
 
-#### Large Screens
+### Large Screens
 
-![screenshot - large format](docs/scrnsht-large.png "Screenshot - Large Screens")
+Examples of the reformatting of the content for large screens:
 
-#### Medium Screens
+![screenshot - large format image 1](docs/scrnsht-large.png "Screenshot - Large Screens image 1")
+
+![screenshot - large format image 2](docs/scrnsht-large-2.png "Screenshot - Large Screens image 2")
+
+### Medium Screens
+
+Example of the reformatting of the content for medium screens:
 
 ![screenshot - medium format](docs/scrnsht-interm.png "Screenshot - Medium Screens")
 
-#### Small Screens
+### Small Screens
+
+Examples of the responsive navigation menu and reformatting of the content for small screens:
 
 ![screenshot - small format](docs/scrnsht-small.png "Screenshot - Small Screens")
 
@@ -78,6 +86,8 @@ Kevin Powell's extremely clear tutorials on YouTube, such as this tutorial on re
 Font Awesome for the wide variety of svg icons available to enhance the UI design: [Font Awesome](https://fontawesome.com/)
 
 OpenAI's ChatGPT for the advice and examples that seem to be much quicker and clearer than searching google for the same thing; [OpenAI](https://openai.com/)
+
+Normalize.css v8.0.1 for the CSS reset: [Normalize.css](https://necolas.github.io/normalize.css/)
 
 ## License
 
