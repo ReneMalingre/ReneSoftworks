@@ -120,7 +120,7 @@
           <div class="summary-card-content">
             <div class="summary-card-icon"></div>
             <ul>
-              <li>Node.js, React, MySql & more</li>
+              <li>Node.js, Express, React, MySql & more</li>
               <li>.Net native applications</li>
               <li>API integrations</li>
             </ul>
@@ -131,17 +131,29 @@
         <article class="summary-card">
           <h3>My projects</h3>
 
+          <!-- InfoPulse -->
+          <div class="summary-card-content">
+            <div class="summary-card-icon" data-is-link="true">
+              <a href="#project-hero" title="hero project">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path d="M319.1 0c14.8-.4 27.9 9.3 31.8 23.6l74 271.2 17.7-35.4c10.8-21.7 33-35.4 57.2-35.4H608c17.7 0 32 14.3 32 32s-14.3 32-32 32H499.8L444.6 398.3c-5.9 11.9-18.6 18.8-31.8 17.5s-24.2-10.6-27.7-23.4L323.7 167.3 255.3 486.7c-3.1 14.4-15.5 24.8-30.2 25.3s-27.8-9.1-31.8-23.2L135.9 288H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H135.9c28.6 0 53.7 18.9 61.5 46.4L219.6 348 288.7 25.3C291.8 10.9 304.4 .4 319.1 0z"/>
+                </svg>
+              </a>
+            </div>
+            <a href="#project-hero">InfoPulse</a>
+          </div>
+
           <!-- Whiskers of Zen -->
           <div class="summary-card-content">
             <div class="summary-card-icon" data-is-link="true">
-              <a href="#project-hero">
+              <a href="#project-zen">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                   <path
                     d="M336 319.8v59.8V464h48V274.3L302.2 224H290.7 144 112.1l-.1 .9V464h48V379.6 319.8l58.4 12.9c9.5 2.1 19.4 3.2 29.6 3.2s20.1-1.1 29.6-3.2L336 319.8zm1.1-130.7l52 32L394 192h40.7H480c26.5 0 48-21.5 48-48V112H496 476.1L462.1 97.9 444.1 80H368 355.3L338 183.9l-.9 5.2zm-272.9 31c-1.1-.3-2.2-.7-3.3-1.1c-17.3-6-32.2-17.3-42.8-32.2C12 178.2 7.3 168.2 4.6 157.4l0 0 0 0L.7 141.8l46.6-11.6 3.9 15.5 0 0C55.6 163.5 71.6 176 90 176h54H290.7L313.5 39.3l3.1-18.7L320 0h24l3.4 4.6 16.8 22.3L368 32h96l32 32h32 48v48 32c0 53-43 96-96 96H434.7L432 256V464v48H384 336 288V464 428.6 379.6c-10.4 2.3-21.1 3.7-32 4.2c-2.7 .1-5.3 .2-8 .2s-5.3-.1-8-.2c-10.9-.5-21.6-1.9-32-4.2v48.9V464v48H160 112 64V464 224c0-1.3 .1-2.6 .2-3.8zM416 112a16 16 0 1 1 32 0 16 16 0 1 1 -32 0z"/>
                 </svg>
               </a>
             </div>
-            <a href="#project-hero">Whiskers of Zen</a>
+            <a href="#project-zen">Whiskers of Zen</a>
           </div>
 
           <!-- Accessibility refactoring -->
@@ -304,9 +316,23 @@
 
         <!-- The actual projects -->
         <article class="article-projects">
-
-          <!-- the Hero project:  -->
+           <!-- the Hero project:  -->
           <div class="project-hero" id="project-hero">
+            <h3 class="project-title">InfoPulse - Personalised Health Info</h3>
+            <div class="project-info">
+              <p class="project-description">InfoPulse is a web application that allows health professionals
+                 to create and share information factsheets with their clients. It is designed to be a simple
+                  and easy to use platform for sharing information to clients, with a focus on privacy and security.</p>
+              <p class="project-tech"><span>Tech:&nbsp;&nbsp;</span>Node.js, express.js, MySql, sequelize, Tailwind CSS</p>
+              <a href="https://secret-fortress-35525-524956ae3bdc.herokuapp.com/"
+                class="project-tech"><span>Link:&nbsp;&nbsp;</span>Live on Heroku</a>
+            </div>
+            <a class="project-hero-image" href="https://github.com/NatalieCampbellGit/InfoPulse">&nbsp;</a>
+            </a>
+          </div>
+
+          <!-- Whiskers of Zen -->
+          <div class="project" id="project-zen">
             <h3 class="project-title">Whiskers of Zen</h3>
             <div class="project-info">
               <p class="project-description">Dog and Cat lovers rejoice! Improve your mood while
@@ -314,11 +340,13 @@
               accesses public APIs to display images of dogs and cats and allows you to rate and favourite
               them so that you can improve your Zen now, and create a collection of images that lift your
               spirits any time you like.</p>
-              <p class="project-tech"><span>Tech:&nbsp;&nbsp;</span>HTML, CSS, JavaScript, APIs</p>
+              <p class="project-access"><span>Tech:&nbsp;&nbsp;</span>HTML, CSS, JavaScript, APIs</p>
               <a href="https://renemalingre.github.io/Whiskers-of-Zen/"
                 class="project-tech"><span>Link:&nbsp;&nbsp;</span>Live on GitHub Pages</a>
             </div>
-            <a class="project-hero-image" href="https://renemalingre.github.io/Whiskers-of-Zen/">&nbsp;</a>
+            <a href="https://renemalingre.github.io/Whiskers-of-Zen/">
+              <img class="project-image" src="assets\images\portfolio\whiskers-of-zen.png"
+                alt="Screenshot of the Whiskers-of-Zen website" />
             </a>
           </div>
 

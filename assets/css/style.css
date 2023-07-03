@@ -424,7 +424,7 @@ This resizes and reorganises the layout for larger screens */
 .project-hero-image {
   grid-area: screenshot;
   background-color: var(--color-blue);
-  background-image: url("../images/portfolio/whiskers-of-zen.png");
+  background-image: url("../images/portfolio/admin-dashboard.png");
   background-size: cover;
   background-position: center;
   border: 3px solid var(--color-dark);
